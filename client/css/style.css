@@ -1,0 +1,225 @@
+body {
+  background-color: #f2f2f2;
+  color: #6b6b6b;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 10px 0px 5px 0px;
+}
+
+.layout {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  /* transition: all 0.2s ease-out; */
+}
+
+form label {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+hr {
+  border: 1px solid rgba(107, 107, 107, 0.15);
+  width: 92%;
+}
+hr.left {
+  text-align: left;
+}
+
+.card {
+  border: 1px solid #dadada;
+  background-color: white;
+  color: #6b6b6b;
+}
+
+.tight {
+  padding: 5px;
+}
+
+.relaxed {
+  padding: 15px;
+}
+
+.spacious {
+  margin: 5px;
+}
+.spacious.vertical {
+  margin: 5px 0px;
+}
+.spacious.horizontal {
+  margin: 0px 5px;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-xsmall {
+  font-size: 70%;
+}
+
+.button-small {
+  font-size: 85%;
+}
+
+.button-large {
+  font-size: 110%;
+}
+
+.button-xlarge {
+  font-size: 125%;
+}
+
+.red {
+  color: #e74c3c;
+}
+
+.green {
+  color: #2ecc71;
+}
+
+.blue {
+  color: #3498db;
+}
+
+.orange {
+  color: #e67e22;
+}
+
+.purple {
+  color: #9b59b6;
+}
+
+.yellow {
+  color: #f1c40f;
+}
+
+.grey {
+  color: #95a5a6;
+}
+.grey:hover {
+  color: #ccd4d5;
+}
+
+.white {
+  color: #ecf0f1;
+}
+
+.dark {
+  color: #34495e;
+}
+.dark:hover {
+  color: #587ca0;
+}
+
+.button, .invert {
+  background-color: #95a5a6;
+  color: #ecf0f1;
+}
+.button.white, .invert.white {
+  background-color: #f2f2f2;
+  color: #6b6b6b;
+}
+.button.red, .invert.red {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+}
+.button.green, .invert.green {
+  background-color: #2ecc71;
+  color: #ecf0f1;
+}
+.button.blue, .invert.blue {
+  background-color: #3498db;
+  color: #ecf0f1;
+}
+.button.orange, .invert.orange {
+  background-color: #e67e22;
+  color: #ecf0f1;
+}
+.button.dark, .invert.dark {
+  background-color: #34495e;
+  color: #ecf0f1;
+}
+.button.dark-blue, .invert.dark-blue {
+  background-color: #2980b9;
+  color: #ecf0f1;
+}
+
+.list, .left-menu .list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.list a, .left-menu .list a {
+  display: inline-block;
+  text-decoration: none;
+}
+.list.inset {
+  margin-left: 20px;
+}
+
+.left-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.left-menu .list li {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.left-menu .list li a {
+  padding: 10px 10px 10px 10px;
+  display: block;
+  /*margin:4px 0px;*/
+  border-radius: 1px;
+}
+.left-menu .list li a:hover {
+  background-color: #2b86c1;
+}
+.left-menu .list li .option {
+  display: none;
+  height: 0px;
+  overflow: hidden;
+}
+
+.left-menu-sub, div.submenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+div.submenu {
+  margin-left: 16.6667%;
+}
+
+.pure-form-aligned .pure-control-group label {
+  width: 6em;
+}

@@ -1,0 +1,38 @@
+<div class="relaxed">
+	<div class="relaxed card">
+
+		<h3>
+			Create Page
+		</h3>
+
+		<hr class="left" />
+
+		<form name="pageForm" class="pure-form pure-form-aligned" ng-submit="pageForm.$valid && createPage(page)" novalidate>
+			<fieldest>
+				<div class="pure-control-group">
+					<div class="pure-u-1-2">
+						<label for="name">Name</label>
+						<input type="text" name="name" ng-model="page.name" required />
+					</div>
+				</div>
+
+				<div class="pure-control-group">
+					<div class="pure-u-1-2">
+						<label for="name">Slug</label>
+						<input type="text" name="slug" ng-model="page.slug" />
+					</div>
+				</div>
+
+				<div class="pure-control-group">
+					<label for="body">Body</label>
+					<textarea class="pure-u-20-24" rows="15" type="text" name="body" ng-model="page.body" required></textarea>
+				</div>
+				<div class="pure-control-group">
+					<label></label>
+					<button class="pure-button blue invert large right">Create Page</button>
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+</div>

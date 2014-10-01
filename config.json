@@ -1,0 +1,6 @@
+{
+	"secret" : "kwelkhwef9234hsdflklk675",
+	"database" : {
+		"development" : "mongodb://localhost/atlasfour"
+	}
+}

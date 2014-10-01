@@ -1,0 +1,39 @@
+<side-bar></side-bar>
+<div class="pure-u-20-24">
+	<div class="tight">
+		<div class="relaxed card">
+			<h3>
+				Users
+			</h3>
+
+			<hr class="left" />
+			<br clear="left" />
+
+			<form class="pure-form pure-form-aligned" name="userCreate" ng-submit="save(user)" novalidate>
+				<fieldset>
+					<div class="pure-control-group">
+						<label for="username">Username</label>
+						<input type="text" name="username" ng-model="user.username" required />
+					</div>
+					<div class="pure-control-group">
+						<label for="password">Password</label>
+						<input type="text" name="password" ng-model="user.password" required />
+					</div>
+					<div class="pure-control-group">
+						<label for="email">Email</label>
+						<input type="text" name="email" ng-model="user.email" required />
+					</div>
+					<div class="pure-control-group">
+						<label for="role">Role</label>
+						<input type="text" name="role" ng-model="user.role" required />
+					</div>
+
+					<input type="hidden" ng-model="user._id" name="_id" />
+
+					<button class="pure-button blue invert" ng-hide="user._id">Create User</button>
+					<button class="pure-button blue invert" ng-show="user._id">Edit User</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

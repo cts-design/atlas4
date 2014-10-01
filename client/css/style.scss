@@ -1,0 +1,273 @@
+$background-color:#F2F2F2;
+$segment-color:#FFFFFF;
+$border-color:#DADADA;
+$text-color:#6B6B6B;
+
+$aqua:#1abc9c;
+$green:#2ecc71;
+$blue:#3498db;
+$purple:#9b59b6;
+$dark:#34495e;
+$yellow:#f1c40f;
+$orange:#e67e22;
+$red:#e74c3c;
+$white:#ecf0f1;
+$grey:#95a5a6;
+
+$dark-red:#c0392b;
+$dark-green:#27ae60;
+$dark-blue:#2980b9;
+$dark-purple:#8e44ad;
+$dark-dark:#2c3e50;
+$dark-yellow:#f39c12;
+$dark-orange:#d35400;
+
+@mixin invert($bg, $color) {
+	background-color:$bg;
+	color:$color;
+}
+
+@mixin color($color) {
+	color:$color;
+}
+
+body {
+	background-color:$background-color;
+	color:$text-color;
+}
+
+h1, h2, h3, h4, h5 {
+	margin:10px 0px 5px 0px;
+}
+
+.layout {
+	-webkit-transition: all 0.2s ease-out;
+-moz-transition: all 0.2s ease-out;
+-ms-transition: all 0.2s ease-out;
+-o-transition: all 0.2s ease-out;
+/* transition: all 0.2s ease-out; */
+}
+
+
+form {
+	label {
+		display:inline-block;
+		margin-top:10px;
+	}
+}
+
+hr {
+	border: 1px solid rgba($text-color, 0.15);
+	width:92%;
+
+	&.left {
+		text-align: left;
+	}
+}
+
+.card {
+	border:1px solid $border-color;
+	background-color:$segment-color;
+	color:$text-color;
+}
+
+.tight {
+	padding:5px;
+}
+.relaxed {
+	padding:15px;
+}
+.spacious {
+	margin:5px;
+
+	&.vertical {
+		margin:5px 0px;
+	}
+
+	&.horizontal {
+		margin:0px 5px;
+	}
+}
+
+.rounded {
+	border-radius: 4px;
+}
+
+.right {
+	float:right;
+}
+
+.left {
+	float:left;
+}
+
+.text-right {
+	text-align:right;
+}
+
+.text-left {
+	text-align:left;
+}
+
+.clearfix {
+	overflow:hidden;
+}
+
+.center {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+
+.button-large {
+    font-size: 110%;
+}
+
+.button-xlarge {
+    font-size: 125%;
+}
+
+.red {
+	@include color($red);
+}
+.green {
+	color:$green;
+}
+.blue {
+	color:$blue;
+}
+.orange {
+	color:$orange;
+
+	a & {
+		color:lighten($orange, 20%);
+	}
+}
+.purple {
+	color:$purple;
+}
+.yellow {
+	color:$yellow;
+}
+.grey {
+	color:$grey;
+	&:hover{
+		color: lighten($grey, 20%);
+	}
+}
+.white {
+	color:$white;
+}
+.dark {
+	color:$dark;
+	&:hover{
+		color: lighten($dark, 20%);
+	}
+}
+
+.button, .invert {
+	background-color:$grey;
+	color:$white;
+
+	&.white {
+		background-color:$background-color;
+		color:$text-color;
+	}
+	&.red {
+		@include invert($red, $white);
+	}
+
+	&.green {
+		@include invert($green, $white);
+	}
+	&.blue {
+		@include invert($blue, $white);
+	}
+	&.orange {
+		@include invert($orange, $white);
+	}
+	&.dark {
+		@include invert($dark, $white);
+	}
+
+	&.dark-blue {
+		@include invert($dark-blue, $white);
+	}
+}
+
+.list {
+	list-style: none;
+	margin:0px;
+	padding:0px;
+	a { display:inline-block; text-decoration: none;}
+
+	&.inset {
+		margin-left:20px;
+	}
+}
+
+.left-menu {
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+
+	.list {
+		@extend .list;
+		li {
+			width:100%;
+			margin-bottom:5px;
+			a {
+				padding:10px 10px 10px 10px;
+				display: block;
+				/*margin:4px 0px;*/
+				border-radius:1px;
+
+				&:hover {
+					background-color:lighten($dark-blue, 2%);
+				}
+
+			}
+
+			.option {
+				display:none;
+				height:0px;
+				overflow:hidden;
+			}
+		}
+	}
+}
+
+.left-menu-sub {
+	position:fixed;
+	top:0;
+	bottom:0;
+}
+
+div.submenu {
+	@extend .left-menu-sub;
+
+	margin-left:16.6667%
+	ul {
+		li {
+			a {
+				font-size:14pt;
+			}
+		}
+	}
+}
+
+.pure-form-aligned {
+	.pure-control-group {
+		label {
+			width:6em;
+		}
+	}
+}

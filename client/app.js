@@ -1,0 +1,1 @@
+angular.module('app', ['app.filters', 'app.directives', 'ui.bootstrap', 'page', 'user']);

@@ -1,0 +1,43 @@
+<side-bar></side-bar>
+<div class="pure-u-20-24">
+	<div class="tight">
+		<div class="card relaxed">
+
+			<h4>Create Page</h4>
+
+			<hr class="left" />
+			<br clear="left" />
+
+			<form name="pageForm" class="pure-form pure-form-aligned" novalidate ng-submit="pageForm.$valid && createPage(page)">
+				<fieldset>
+					<div class="pure-control-group">
+						<label for="title">
+							Title
+						</label>
+						<input type="text" name="title" ng-model="page.title" class="pure-u-1-3" required />
+					</div>
+
+					<div class="pure-control-group">
+						<label for="slug">
+							Slug
+						</label>
+						<input type="text" name="slug" value="{{ page.title | spacetoslash }}" class="pure-u-1-3" readonly />
+					</div>
+
+					<div class="pure-control-group">
+						<label for="body">
+							Body
+						</label>
+						<textarea type="text" name="body" ng-model="page.body" class="pure-u-2-3" rows="10" required />
+					</div>
+
+					<div class="pure-control-group">
+						<label></label>
+						<button class="pure-button pure-button-primary button-large pure-u-1-3" tooltip-placement="top" tooltip="{{ page.title }}" >Create Page</button>
+					</div>
+
+				</fielset>
+			</form>
+		</div>
+	</div>
+</div>
