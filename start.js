@@ -42,11 +42,11 @@ api.post('/user', userCtrl.save);
 api.delete('/user/:id', userCtrl.delete);
 api.post('/user/login', auth, userCtrl.login);
 
-/*
-api.get('/page', pageCtrl.query);
 api.get('/page/:id', pageCtrl.get);
+api.get('/page', pageCtrl.query);
 api.post('/page', pageCtrl.save);
-*/
+api.delete('/page', pageCtrl.delete);
+
 
 function auth(req, res, next) {
 	var username = req.body.username;

@@ -1,52 +1,62 @@
-//Page Controller
-var Page = require('./../models/page_model.js');
-var page = {}
+var Page 	= require('./../../server/models/page_model.js');
+var jwt 	= require('jsonwebtoken');
+var config	= require('./../../config.json');
+var page 	= {};
 
-page.query = function (req, res) {
+page.get = function(req, res) {
+	Page.findById(req.params.id)
+	.exec(function(err, page) {
+		res.json(page);
+	});
+};
+
+page.query = function(req, res) {
 	var limit 	= req.query.limit || 10;
 	var skip	= req.query.skip || 0;
 
 	delete req.query.limit;
 	delete req.query.skip;
 
-	Page.find(req.query, {}, { skip : skip, limit : limit }, function (err, pages) {
+	Page.find(req.query)
+	.skip(skip)
+	.limit(limit)
+	.exec(function (err, pages) {
 		if(pages) {
 			res.json(pages);
 		} else {
 			res.json([]);
 		}
-	});
+	})
 };
 
-page.get = function (req, res) {
-	Page.findOne({ _id : req.params.id }, function(err, page) {
-		res.json(page);
+page.delete = function(req, res) {
+	var id = req.params.id;
+	
+	Page.findByIdAndRemove(id, function(err, removedPage){
+		res.json(removedPage);
 	});
-};
+}
 
-page.save = function (req, res) {
+page.save = function(req, res) {
 	var page = new Page(req.body);
 
-	if(req.body._id) {
-		Page.where({ _id : req.body._id }).update(req.body);
+	var id = req.body._id || 0;
+	delete req.body._id;
+	delete req.body.__v;
+
+	if(id) {
+		Page.findByIdAndUpdate(id, req.body, {}, function(err, pages) {
+			res.json(pages);
+		});
 	} else {
-		page.save(function(err, savedPage, affected) {
-			console.log(err);
+		Page.save(function(err, savedPage, affected) {
 			if(!err) {
 				res.json(savedPage);
 			} else {
-				res.status(500).end('User could not be saved');
+				res.status(500).end('Page could not be saved');
 			}
 		});
 	}
-};
-
-page.remove = function(req, res) {
-
-};
-
-page.delete = function (req, res) {
-
 };
 
 module.exports = page;
