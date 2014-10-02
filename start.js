@@ -45,7 +45,7 @@ api.post('/user/login', auth, userCtrl.login);
 api.get('/page/:id', pageCtrl.get);
 api.get('/page', pageCtrl.query);
 api.post('/page', pageCtrl.save);
-api.delete('/page', pageCtrl.delete);
+api.delete('/page/:id', pageCtrl.delete);
 
 
 function auth(req, res, next) {

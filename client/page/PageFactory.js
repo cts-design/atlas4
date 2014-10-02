@@ -1,4 +1,4 @@
 angular.module('page')
 .factory('PageFactory', function($resource) {
-	return $resource('/page/:id');
+	return $resource('/api/v1/page/:_id');
 })

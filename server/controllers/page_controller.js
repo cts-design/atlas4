@@ -49,7 +49,7 @@ page.save = function(req, res) {
 			res.json(pages);
 		});
 	} else {
-		Page.save(function(err, savedPage, affected) {
+		page.save(function(err, savedPage, affected) {
 			if(!err) {
 				res.json(savedPage);
 			} else {

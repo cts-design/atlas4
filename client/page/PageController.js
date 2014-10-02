@@ -1,30 +1,23 @@
 angular.module('page')
 
-.controller('PageController', function($scope, PageFactory) {
+.controller('PageController', function($scope, $stateParams, $state, PageFactory) {
 	$scope.page = '';
-	$scope.skip = 0;
-	$scope.limit = 10;
 
-	$scope.createPage = function() {
-		
+	$scope.save = function(page) {
+		$scope.saving = true;
+		PageFactory.save(page).$promise.then(function(server_page) {
+			$scope.saving = false;
+			$state.go('page.list');
+		});
 	}
 
-	$scope.next = function() {
-		$scope.skip += $scope.limit;
-		query($scope.skip);
+	$scope.remove = function(page, index) {
+		PageFactory.delete({ _id : page._id }).$promise.then(function(page) {
+			$scope.pages.splice(index, 1);
+		});
 	}
 
-	$scope.back = function() {
-		if($scope.skip - $scope.limit < 0) {
-			$scope.skip = 0;
-		} else {
-			$scope.skip -= $scope.limit;
-		}
-
-		query($scope.skip);
-	}
-
-	function query(skip, limit) {
+	$scope.query = function(skip, limit) {
 		var skip = skip || 0;
 		var limit = limit || 10;
 
@@ -34,10 +27,7 @@ angular.module('page')
 		});
 	}
 
-	query();
-
-	$scope.$watch('page.title', function(value) {
-		if(value)
-			$scope.page.slug = value.replace(' ', '_');
-	});
+	if($stateParams.id) {
+		$scope.page = PageFactory.get({ _id : $stateParams.id });
+	}
 })
