@@ -12,7 +12,9 @@ user.login = function(req, res, next) {
 };
 
 user.get = function(req, res) {
-	User.findOne({ _id : req.params.id }, function(err, user) {
+	User.findById(req.params.id)
+	.sort('-username')
+	.exec(function(err, user) {
 		res.json(user);
 	});
 };
@@ -24,14 +26,17 @@ user.query = function(req, res) {
 	delete req.query.limit;
 	delete req.query.skip;
 
-	User.find(req.query, {}, { skip : skip, limit : limit }, function (err, users) {
+	User.find(req.query)
+	.select('-password')
+	.skip(skip)
+	.limit(limit)
+	.exec(function (err, users) {
 		if(users) {
 			res.json(users);
 		} else {
 			res.json([]);
 		}
 	})
-	.select('-password -__v');
 };
 
 user.delete = function(req, res) {

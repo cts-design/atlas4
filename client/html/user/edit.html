@@ -9,7 +9,7 @@
 			<hr class="left" />
 			<br clear="left" />
 
-			<form class="pure-form pure-form-aligned" name="userCreate" ng-submit="save(user)" novalidate>
+			<form class="pure-form pure-form-aligned" name="userForm" ng-submit="save(user)" novalidate>
 				<fieldset>
 					<div class="pure-control-group">
 						<label for="username">Username</label>
@@ -30,8 +30,11 @@
 
 					<input type="hidden" ng-model="user._id" name="_id" />
 
-					<button class="pure-button blue invert" ng-hide="user._id">Create User</button>
-					<button class="pure-button blue invert" ng-show="user._id">Edit User</button>
+					<div class="pure-control-group">
+						<label></label>
+						<button class="pure-button blue invert button-large" ng-hide="user._id" ng-disabled="saving">Create User</button>
+						<button class="pure-button blue invert button-large" ng-show="user._id" ng-disabled="saving">Edit User</button>
+					</div>
 				</fieldset>
 			</form>
 		</div>

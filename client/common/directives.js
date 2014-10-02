@@ -42,20 +42,43 @@ angular.module('app.directives', [])
 			color : '@',
 			removable : '=',
 			editable : '=',
-			next : '&',
-			back : '&',
 			remove : '&',
-			skip : '=',
-			limit : '=',
-			editState : '@'
+			editState : '@',
+			query : '&'
 		},
-		link : function(scope, element, attrs) {
-			if(scope.width)
-				element.width = scope.width;
+		controller : function($scope, $element) {
+			if(!$scope.skip)
+				$scope.skip = 0;
 
-			scope.removeFn = function(row, index) {
-				scope.$parent.remove(row, index);
-			}
+			if(!$scope.limit)
+				$scope.limit = 10;
+
+			$scope.next = function() {
+				$scope.skip += $scope.limit;
+
+				$scope.query({
+					skip : $scope.skip, 
+					limit : $scope.limit
+				});
+			};
+
+			$scope.back = function() {
+				if($scope.skip - $scope.limit < 0) {
+					$scope.skip = 0;
+				} else {
+					$scope.skip -= $scope.limit;
+				}
+
+				$scope.query({
+					skip : $scope.skip, 
+					limit : $scope.limit
+				});
+			};
+
+			$scope.query({
+				skip : $scope.skip, 
+				limit : $scope.limit
+			});
 		},
 		templateUrl : '/html/partials/admin_table.html'
 	}

@@ -26,7 +26,7 @@
 			<td ng-if="editable || removable">
 				<a class="orange" ng-if="editable" ui-sref="{{editState}}({id:row._id})">Edit</a>
 				 <span ng-if="editable && removable">|</span> 
-				<a href class="orange" ng-if="removable" ng-click="removeFn(row, $index)">Remove</a>
+				<a href class="orange" ng-if="removable" ng-click="remove({ user : row, index : $index})">Remove</a>
 			</td>
 		</tr>
 	</tbody>

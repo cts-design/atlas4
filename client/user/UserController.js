@@ -1,30 +1,14 @@
 angular.module('user')
 
 .controller('UserController', function($scope, $state, $stateParams, UserFactory) {
-	$scope.skip = 0;
-	$scope.limit = 10;
 	$scope.users = [];
 	$scope.user = {};
 
-	$scope.next = function() {
-		$scope.skip += $scope.limit;
-		query($scope.skip);
-	}
-
-	$scope.back = function() {
-		if($scope.skip - $scope.limit < 0) {
-			$scope.skip = 0;
-		} else {
-			$scope.skip -= $scope.limit;
-		}
-
-		query($scope.skip);
-	}
-
 	$scope.save = function(user) {
+		$scope.saving = true;
 		UserFactory.save(user).$promise.then(function(server_user) {
-			$scope.users.push(server_user);
-			//$state.go('user.list');
+			$scope.saving = false;
+			$state.go('user.list');
 		});
 	}
 
@@ -34,7 +18,7 @@ angular.module('user')
 		});
 	}
 
-	function query(skip, limit) {
+	$scope.query = function(skip, limit) {
 		var skip = skip || 0;
 		var limit = limit || 10;
 
@@ -44,15 +28,7 @@ angular.module('user')
 		});
 	}
 
-	function get() {
-		$scope.user = UserFactory.query({ _id : $stateParams.id })
-		.$promise.then(function(users) {
-			$scope.user = users[0];
-		});
+	if($stateParams.id) {
+		$scope.user = UserFactory.get({ _id : $stateParams.id });
 	}
-
-
-
-	query();
-	get();
 })

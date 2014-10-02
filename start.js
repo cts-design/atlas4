@@ -13,6 +13,7 @@ var bodyParser 	= require('body-parser');
 var mongoose	= require('mongoose');
 var expressJwt 	= require('express-jwt');
 var config		= require('./config.json');
+var api			= express.Router();
 //var index		= fs.readFileSync('../client/index.html', 'utf8');
 
 //Controllers
@@ -29,21 +30,23 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client'));
 //app.use(expressJwt({ secret : config.secret }).unless({ path : ['/user/login'] }));
+app.use('/api/v1', api);
 
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/client/index.html');
 });
 
-app.get('/user', userCtrl.query);
-app.get('/user/:id', userCtrl.get);
-app.post('/user', userCtrl.save);
-app.delete('/user/:id', userCtrl.delete);
-app.post('/user/login', auth, userCtrl.login);
+api.get('/user', userCtrl.query);
+api.get('/user/:id', userCtrl.get);
+api.post('/user', userCtrl.save);
+api.delete('/user/:id', userCtrl.delete);
+api.post('/user/login', auth, userCtrl.login);
 
-app.get('/page', pageCtrl.query);
-app.get('/page/:id', pageCtrl.get);
-app.post('/page', pageCtrl.save);
-
+/*
+api.get('/page', pageCtrl.query);
+api.get('/page/:id', pageCtrl.get);
+api.post('/page', pageCtrl.save);
+*/
 function auth(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.password;

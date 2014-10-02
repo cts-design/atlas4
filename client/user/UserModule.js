@@ -21,17 +21,13 @@ angular.module('user', ['ui.router'])
 
 	.state('user.list', {
 		url : '/list',
-		templateUrl : '/html/user/list.html'
+		templateUrl : '/html/user/list.html',
+		controller : 'UserController'
 	})
 
 	.state('user.edit', {
 		url : '/edit/{id}',
 		templateUrl : '/html/user/edit.html',
-		controller : 'UserController',
-		params : {
-			id : {
-				value : '1231846'
-			}
-		}
+		controller : 'UserController'
 	})
 })

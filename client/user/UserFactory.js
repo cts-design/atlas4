@@ -1,4 +1,4 @@
 angular.module('user')
 .factory('UserFactory', function($resource) {
-	return $resource('/user/:_id');
+	return $resource('/api/v1/user/:_id');
 })
