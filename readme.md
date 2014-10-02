@@ -8,9 +8,15 @@ All from root directory
 
 `npm install`
 
+This will install all of the node.js dependencies
+
 `bower install`
 
+This will install all of the client side dependencies for client/vendors
+
 `grunt server`
+
+
 
 If you want to activate live reload for the project instead, run
 
