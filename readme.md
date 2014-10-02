@@ -1,7 +1,5 @@
 ###Getting Started
 
-All from root directory
-
 `git clone https://github.com/JosephShering/Atlas4.git`
 
 `cd Atlas4`
