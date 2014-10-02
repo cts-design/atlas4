@@ -47,6 +47,7 @@ api.get('/page', pageCtrl.query);
 api.get('/page/:id', pageCtrl.get);
 api.post('/page', pageCtrl.save);
 */
+
 function auth(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.password;
