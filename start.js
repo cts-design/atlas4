@@ -65,3 +65,10 @@ function auth(req, res, next) {
 
 httpServer.listen(7000);
 httpsServer.listen(8000, '0.0.0.0');
+
+//adding ghost
+
+var ghost = require('ghost');
+ghost().then(function(ghostServer){
+    ghostServer.start();
+});
