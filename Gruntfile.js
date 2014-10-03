@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 			},
 			js : {
 				options : options,
-				files : ['client/js/**/*.js']
+				files : ['client/**/*.js']
 			},
 			sass : {
 				options : options,

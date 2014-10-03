@@ -83,3 +83,20 @@ angular.module('app.directives', [])
 		templateUrl : '/html/partials/admin_table.html'
 	}
 })
+
+.directive('notify', function() {
+	return {
+		restrict : 'E',
+		transclude : true,
+		replace : true,
+		scope : {
+			watch : '='
+		},
+		controller : function($scope, $element) {
+			$scope.$watch('watch', function(value) {
+				console.log(value)
+			});
+		},
+		template : '<div class="notify"><p ng-transclude></p></div>'
+	}
+})

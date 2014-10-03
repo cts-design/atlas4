@@ -26,10 +26,17 @@
 			<a ui-sref="page.list" class="dark">View All Pages</a>
 		</li>
 	</ul>
+
+	<h4>Template</h4>
+	<ul class="inset list">
+		<li>
+			<a ui-sref="template.edit" class="dark">Edit Template</a>
+		</li>
+	</ul>
 </div>
 
 <div class="pure-u-4-24 submenu tight card" ng-if="subMenu == 'users'" ng-mouseleave="close()" ng-mouseover="stopTimeout()">
-	<h4>Uses</h4>
+	<h4>Users</h4>
 	<ul class="inset list">
 		<li>
 			<a ui-sref="user.list" class="dark">View All Customers</a>

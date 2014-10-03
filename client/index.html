@@ -5,26 +5,31 @@
 
 	<link rel="stylesheet" href="/vendors/pure/pure-min.css" />
 	<link rel="stylesheet" href="/vendors/pure/grids-responsive-min.css" />
-	<link rel="stylesheet" href="/css/style.css" />
 
-	<script src="/vendors/jquery/dist/jquery.min.js"></script>
-	<script src="/vendors/underscore/underscore-min.js"></script>
+	<link rel="stylesheet" href="/vendors/froala/css/froala_editor.min.css" />
+
+	<link rel="stylesheet" href="/css/style.css" />
 
 	<link rel="stylsheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css" />
 
 	<link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css" />
-	<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body ng-app="app">
 	<ui-view></ui-view>
 	<script src="//localhost:8008/livereload.js"></script>
 
+	<script src="/vendors/jquery/dist/jquery.min.js"></script>
+	<script src="/vendors/underscore/underscore-min.js"></script>
+
 	<script src="/vendors/angular/angular.min.js"></script>
-	<script src="/vendors/angular-bootstrap/ui-bootstrap.min.js"></script>
-	<script src="/vendors/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	
 	<script src="/vendors/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="/vendors/angular-resource/angular-resource.min.js"></script>
-	<script src="/vendors/angular-sanitize/angular-sanitize.min.js"></script>
+
+
+	<script src="/vendors/froala/js/froala_editor.min.js"></script>
+	<script src="/vendors/angular-froala/src/angular-froala.js"></script>
+	<script src="/vendors/angular-froala/src/froala-sanitize.js"></script>
 
 	<script src="/app.js"></script>
 	<script src="/common/filters.js"></script>
@@ -37,5 +42,9 @@
 	<script src="/page/PageModule.js"></script>
 	<script src="/page/PageFactory.js"></script>
 	<script src="/page/PageController.js"></script>
+
+	<script src="/template/TemplateModule.js"></script>
+	<script src="/template/TemplateFactory.js"></script>
+	<script src="/template/TemplateController.js"></script>
 </body>
 </html>
