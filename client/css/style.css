@@ -112,6 +112,9 @@ hr.left {
 .orange {
   color: #e67e22;
 }
+a .orange {
+  color: #f0b37e;
+}
 
 .purple {
   color: #9b59b6;
@@ -218,6 +221,10 @@ hr.left {
 
 div.submenu {
   margin-left: 16.6667%;
+  z-index: 1001;
+}
+div.submenu ul li a {
+  font-size: 12pt;
 }
 
 .pure-form-aligned .pure-control-group label {

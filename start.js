@@ -16,15 +16,14 @@ var config		= require('./config.json');
 var api			= express.Router();
 //var index		= fs.readFileSync('../client/index.html', 'utf8');
 
+//Activate the database!
+mongoose.connect(config.database.development);
+
 //Controllers
 var userCtrl 	= require('./server/controllers/user_controller.js');
 var pageCtrl 	= require('./server/controllers/page_controller.js');
 
-//Models
-var User		= require('./server/models/user_model.js');
-
-//Activate the database!
-mongoose.connect(config.database.development);
+require('./server/controllers/template_controller.js')(api);
 
 app.use(cors());
 app.use(bodyParser.json());

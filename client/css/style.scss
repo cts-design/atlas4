@@ -254,11 +254,12 @@ hr {
 div.submenu {
 	@extend .left-menu-sub;
 
-	margin-left:16.6667%
+	margin-left:16.6667%;
+	z-index:1001;
 	ul {
 		li {
 			a {
-				font-size:14pt;
+				font-size:12pt;
 			}
 		}
 	}
